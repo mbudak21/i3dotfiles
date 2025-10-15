@@ -38,3 +38,6 @@ cp ./wallpaper.png ~/.config/i3/wallpaper.png
 # Simply copy the files in i3blocks into your config. You may already the i3blocks folder, if you don't install i3blocks.
 ```
 
+## Dependencies
+Make sure you have the **CaskaydiaCove** font and **dmenu** installed.  
+Some i3blocks modules (CPU, battery) may also require extra utilities such as `acpi` and `mpstat`.
