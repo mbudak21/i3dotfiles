@@ -12,7 +12,8 @@ The goal is **sane defaults** with just a few quality-of-life tweaks.
 
 ### i3blocks
 - Uses **Caskaydia Cove Nerd Font**.  
-- Status bar labels use **glyphs instead of plain text** for RAM, SSD, etc.  
+- Status bar labels use **glyphs instead of plain text** for RAM, SSD, etc.
+- The bar has interactible elements and supports tray applications.
 ---
 
 ## 📸 Screenshots
