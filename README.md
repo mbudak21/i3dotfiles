@@ -37,6 +37,3 @@ cp ./wallpaper.png ~/.config/i3/wallpaper.png
 # Simply copy the files in i3blocks into your config. You may already the i3blocks folder, if you don't install i3blocks.
 ```
 
-
-<img width="2559" height="1599" alt="image" src="https://github.com/user-attachments/assets/7df103b4-4217-4860-8e81-ba0e81306b59" />
-<img width="2559" height="1599" alt="image" src="https://github.com/user-attachments/assets/6ea4216d-27b5-4383-bb35-af6d20db0a99" />
