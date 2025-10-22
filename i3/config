@@ -4,7 +4,8 @@ floating_modifier $mod
 
 # start a terminal
 set $term alacritty
-bindsym $mod+Return exec $term
+bindsym $mod+Return exec --no-startup-id $term > ~/i3.log 2>&1
+bindsym $mod+Shift+f exec alacritty -e env
 
 # kill focused window
 bindsym $mod+q kill
@@ -12,7 +13,7 @@ bindsym $mod+q kill
 # start dmenu (a program launcher)
 #bindsym ctrl+space exec rofi -show run
 # bindsym $mod+d exec "rofi -show combi -modi window,run,combi -combi-modi window,run"
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec --no-startup-id dmenu_run
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -94,7 +95,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -162,15 +163,15 @@ for_window [class="cachyos-welcome"] floating enable
 ########################################################################
 
 
-bindsym XF86AudioRaiseVolume exec "pamixer -ui 3 && pamixer --get-volume > /tmp/xobpipe"
-bindsym XF86AudioLowerVolume exec "pamixer -ud 3 && pamixer --get-volume > /tmp/xobpipe"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pamixer -ui 3 && pamixer --get-volume > /tmp/xobpipe"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pamixer -ud 3 && pamixer --get-volume > /tmp/xobpipe"
 # mute sound
-bindsym XF86AudioMute exec "amixer sset Master toggle | sed -En '/\[on\]/ s/.*\[([0-9]+)%\].*/\1/ p; /\[off\]/ s/.*/0/p' | head -1 > /tmp/xobpipe"
+bindsym XF86AudioMute exec --no-startup-id "amixer sset Master toggle | sed -En '/\[on\]/ s/.*\[([0-9]+)%\].*/\1/ p; /\[off\]/ s/.*/0/p' | head -1 > /tmp/xobpipe"
 
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
+bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 5"
+bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 5"
 
-bindsym $mod+Shift+p exec gnome-calculator
+bindsym $mod+Shift+p exec --no-startup-id gnome-calculator
 #bindsym $mod+p exec ~/.scripts/dmshot
 
 ## This will switch the current layout to the 'us'.
@@ -179,7 +180,7 @@ exec --no-startup-id"setxkbmap -option 'grp:alt_shift_toggle'"
 #bindsym $mod+l exec "setxkbmap -layout us && sleep 0.1 && setxkbmap -option grp:caps_toggle 'us,ru' -option grp_led:caps && sleep 0.1 && i3lock --blur 5"
 
 ## This keybind will lock the screen. The lockscreen.
-bindsym $mod+l exec "sleep 0.1 && i3lock --blur 5"
+bindsym $mod+l exec --no-startup-id "sleep 0.1 && i3lock --blur 5"
 
 ########################################################################
 ########################################################################
@@ -193,10 +194,9 @@ bindsym $mod+l exec "sleep 0.1 && i3lock --blur 5"
 ## and the capslock functionality available by using shift+capslock.
 ## Uncomment to enable 'us' to/from 'ru' switch. change to language(s) you prefer more.
 
-#exec_always setxkbmap -option grp:caps_toggle "us,ru" -option "grp:caps_toggle,grp_led:caps"
+exec_always setxkbmap -option grp:win_space_toggle "us,tr" 
 
-exec xrandr --output HDMI-1-0 --mode 3840x2160 --rate 120 --right-of eDP-1
-#exec xrandr --auto --output HDMI-1 --mode 1920x1080 --above HDMI-2
+exec --no-startup-id xrandr --output DP-1-2 --mode 3840x2160 -r 240 --right-of eDP-1
 
 exec --no-startup-id feh --no-fehbg --bg-fill  ./wallpaper.png
 
@@ -206,7 +206,7 @@ exec --no-startup-id redshift
 exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-exec_always mkfifo /tmp/xobpipe && tail -f /tmp/xobpipe | xob -t 2170 & disown
+exec_always --no-startup-id mkfifo /tmp/xobpipe && tail -f /tmp/xobpipe | xob -t 2170 & disown
 #exec ~/.i3/launch.sh
 
 

@@ -36,6 +36,10 @@ markup=none
 # The second parameter overrides the mixer selection
 # See the script for details.
 
+[kbdd_layout]
+interval=persist
+
+
 [volume]
 label=♪ 
 # label=VOL
