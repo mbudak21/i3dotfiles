@@ -1,7 +1,7 @@
 # i3dotfiles
 
 Minimal configuration for [i3wm](https://i3wm.org/) and [i3blocks](https://github.com/vivien/i3blocks), tuned to my liking.  
-The goal is **sane defaults** with just a few quality-of-life tweaks.
+The goal is **intuitive defaults** with just a few quality-of-life tweaks.
 
 ---
 
