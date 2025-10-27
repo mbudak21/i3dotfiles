@@ -9,6 +9,7 @@ bindsym $mod+Return exec --no-startup-id $term
 # Wallpaper
 set $wallpaper ~/.config/sway/wallpaper.png
 output eDP-1 resolution 2560x1600 position 0,0 background $wallpaper fill
+output * bg ~/.config/sway/wallpaper.png fit
 
 # ?
 set $highlight #3daee9
@@ -194,8 +195,20 @@ bar
     tray_output primary
     font pango:Caskaydia Cove Nerd Font 14
     hidden_state hide
-    status_command i3blocks
+    status_command i3blocks -c ~/.config/i3blocks/lower_bar.ini
 }
+bar 
+{
+    tray_output primary
+    font pango:Caskaydia Cove Nerd Font 14
+    hidden_state hide
+    position top
+    workspace_buttons no
+    binding_mode_indicator yes
+    status_command i3blocks -c ~/.config/i3blocks/upper_bar.ini
+}
+
+    
 
 ####################
 ### Borders
